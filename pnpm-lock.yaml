@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@ai-sdk/openai':
+        specifier: 2.0.0-beta.16
+        version: 2.0.0-beta.16(zod@4.0.17)
       '@hono/node-server':
         specifier: ^1.19.0
         version: 1.19.0(hono@4.9.2)
@@ -20,6 +23,12 @@ importers:
       '@trpc/server':
         specifier: ^11.4.4
         version: 11.4.4(typescript@5.9.2)
+      ai:
+        specifier: 5.0.0-beta.34
+        version: 5.0.0-beta.34(zod@4.0.17)
+      dotenv:
+        specifier: ^17.2.1
+        version: 17.2.1
       hono:
         specifier: ^4.9.2
         version: 4.9.2
@@ -38,6 +47,28 @@ importers:
         version: 5.9.2
 
 packages:
+
+  '@ai-sdk/gateway@1.0.0-beta.19':
+    resolution: {integrity: sha512-felWPMuECZRGx8xnmvH5dW3jywKTkGnw/tXN8szphGzEDr/BfxywuXijfPBG2WBUS6frPXsvSLDRdCm5W38PXA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4
+
+  '@ai-sdk/openai@2.0.0-beta.16':
+    resolution: {integrity: sha512-0fG8U2b4CAxwgvEs05hQj+E8Qkf0WaQrqu/7a9AmutyNuhPtqnMdFsqKYS5t0x2Jo1/0q0lTyCbvHSh5rdHtmw==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4
+
+  '@ai-sdk/provider-utils@3.0.0-beta.10':
+    resolution: {integrity: sha512-e6WSsgM01au04/1L/v5daXHn00eKjPBQXl3jq3BfvQbQ1jo8Rls2pvrdkyVc25jBW4TV4Zm+tw+v6NAh5NPXMA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4
+
+  '@ai-sdk/provider@2.0.0-beta.2':
+    resolution: {integrity: sha512-vqhtZA7R24q1XnmfmIb1fZSmHMIaJH1BVQ+0kFnNJgqWsc+V8i+yfetZ37gUc4fXATFmBuS/6O7+RPoHsZ2Fqg==}
+    engines: {node: '>=18'}
 
   '@esbuild/aix-ppc64@0.25.9':
     resolution: {integrity: sha512-OaGtL73Jck6pBKjNIe24BnFE6agGl+6KxDtTfHhy1HmhthfKouEcOhqpSL64K4/0WCtbKFLOdzD/44cJ4k9opA==}
@@ -208,6 +239,13 @@ packages:
       '@trpc/server': ^10.10.0 || >11.0.0-rc
       hono: '>=4.*'
 
+  '@opentelemetry/api@1.9.0':
+    resolution: {integrity: sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==}
+    engines: {node: '>=8.0.0'}
+
+  '@standard-schema/spec@1.0.0':
+    resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
+
   '@trpc/client@11.4.4':
     resolution: {integrity: sha512-86OZl+Y+Xlt9ITGlhCMImERcsWCOrVzpNuzg3XBlsDSmSs9NGsghKjeCpJQlE36XaG3aze+o9pRukiYYvBqxgQ==}
     peerDependencies:
@@ -222,10 +260,24 @@ packages:
   '@types/node@20.19.11':
     resolution: {integrity: sha512-uug3FEEGv0r+jrecvUUpbY8lLisvIjg6AAic6a2bSP5OEOLeJsDSnvhCDov7ipFFMXS3orMpzlmi0ZcuGkBbow==}
 
+  ai@5.0.0-beta.34:
+    resolution: {integrity: sha512-AFJ4p35AxA+1KFtnoouePLaAUpoj0IxIAoq/xgIv88qzYajTg4Sac5KaV4CDHFRLoF0L2cwhlFXt/Ss/zyBKkA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4
+
+  dotenv@17.2.1:
+    resolution: {integrity: sha512-kQhDYKZecqnM0fCnzI5eIv5L4cAe/iRI+HqMbO/hbRdTAeXDG+M9FjipUxNfbARuEg4iHIbhnhs78BCHNbSxEQ==}
+    engines: {node: '>=12'}
+
   esbuild@0.25.9:
     resolution: {integrity: sha512-CRbODhYyQx3qp7ZEwzxOk4JBqmD/seJrzPa/cGjY1VtIn5E09Oi9/dB4JwctnfZ8Q8iT7rioVv5k/FNT/uf54g==}
     engines: {node: '>=18'}
     hasBin: true
+
+  eventsource-parser@3.0.5:
+    resolution: {integrity: sha512-bSRG85ZrMdmWtm7qkF9He9TNRzc/Bm99gEJMaQoHJ9E6Kv9QBbsldh2oMj7iXmYNEAVvNgvv5vPorG6W+XtBhQ==}
+    engines: {node: '>=20.0.0'}
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -238,6 +290,9 @@ packages:
   hono@4.9.2:
     resolution: {integrity: sha512-UG2jXGS/gkLH42l/1uROnwXpkjvvxkl3kpopL3LBo27NuaDPI6xHNfuUSilIHcrBkPfl4y0z6y2ByI455TjNRw==}
     engines: {node: '>=16.9.0'}
+
+  json-schema@0.4.0:
+    resolution: {integrity: sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA==}
 
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
@@ -255,10 +310,39 @@ packages:
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
+  zod-to-json-schema@3.24.6:
+    resolution: {integrity: sha512-h/z3PKvcTcTetyjl1fkj79MHNEjm+HpD6NXheWjzOekY7kV+lwDYnHw+ivHkijnCSMz1yJaWBD9vu/Fcmk+vEg==}
+    peerDependencies:
+      zod: ^3.24.1
+
   zod@4.0.17:
     resolution: {integrity: sha512-1PHjlYRevNxxdy2JZ8JcNAw7rX8V9P1AKkP+x/xZfxB0K5FYfuV+Ug6P/6NVSR2jHQ+FzDDoDHS04nYUsOIyLQ==}
 
 snapshots:
+
+  '@ai-sdk/gateway@1.0.0-beta.19(zod@4.0.17)':
+    dependencies:
+      '@ai-sdk/provider': 2.0.0-beta.2
+      '@ai-sdk/provider-utils': 3.0.0-beta.10(zod@4.0.17)
+      zod: 4.0.17
+
+  '@ai-sdk/openai@2.0.0-beta.16(zod@4.0.17)':
+    dependencies:
+      '@ai-sdk/provider': 2.0.0-beta.2
+      '@ai-sdk/provider-utils': 3.0.0-beta.10(zod@4.0.17)
+      zod: 4.0.17
+
+  '@ai-sdk/provider-utils@3.0.0-beta.10(zod@4.0.17)':
+    dependencies:
+      '@ai-sdk/provider': 2.0.0-beta.2
+      '@standard-schema/spec': 1.0.0
+      eventsource-parser: 3.0.5
+      zod: 4.0.17
+      zod-to-json-schema: 3.24.6(zod@4.0.17)
+
+  '@ai-sdk/provider@2.0.0-beta.2':
+    dependencies:
+      json-schema: 0.4.0
 
   '@esbuild/aix-ppc64@0.25.9':
     optional: true
@@ -347,6 +431,10 @@ snapshots:
       '@trpc/server': 11.4.4(typescript@5.9.2)
       hono: 4.9.2
 
+  '@opentelemetry/api@1.9.0': {}
+
+  '@standard-schema/spec@1.0.0': {}
+
   '@trpc/client@11.4.4(@trpc/server@11.4.4(typescript@5.9.2))(typescript@5.9.2)':
     dependencies:
       '@trpc/server': 11.4.4(typescript@5.9.2)
@@ -359,6 +447,16 @@ snapshots:
   '@types/node@20.19.11':
     dependencies:
       undici-types: 6.21.0
+
+  ai@5.0.0-beta.34(zod@4.0.17):
+    dependencies:
+      '@ai-sdk/gateway': 1.0.0-beta.19(zod@4.0.17)
+      '@ai-sdk/provider': 2.0.0-beta.2
+      '@ai-sdk/provider-utils': 3.0.0-beta.10(zod@4.0.17)
+      '@opentelemetry/api': 1.9.0
+      zod: 4.0.17
+
+  dotenv@17.2.1: {}
 
   esbuild@0.25.9:
     optionalDependencies:
@@ -389,6 +487,8 @@ snapshots:
       '@esbuild/win32-ia32': 0.25.9
       '@esbuild/win32-x64': 0.25.9
 
+  eventsource-parser@3.0.5: {}
+
   fsevents@2.3.3:
     optional: true
 
@@ -397,6 +497,8 @@ snapshots:
       resolve-pkg-maps: 1.0.0
 
   hono@4.9.2: {}
+
+  json-schema@0.4.0: {}
 
   resolve-pkg-maps@1.0.0: {}
 
@@ -410,5 +512,9 @@ snapshots:
   typescript@5.9.2: {}
 
   undici-types@6.21.0: {}
+
+  zod-to-json-schema@3.24.6(zod@4.0.17):
+    dependencies:
+      zod: 4.0.17
 
   zod@4.0.17: {}
