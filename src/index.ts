@@ -1,15 +1,30 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import { serve } from "@hono/node-server";
+import { Hono } from "hono";
+import { trpcServer } from "@hono/trpc-server";
+import { appRouter } from "./router.js";
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.use(
+  "/trpc/*",
+  trpcServer({
+    router: appRouter,
+  })
+);
 
-serve({
-  fetch: app.fetch,
-  port: 3000
-}, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`)
-})
+app.get("/", (c) => {
+  return c.json("OK");
+});
+
+serve(
+  {
+    fetch: app.fetch,
+    port: 8000,
+  },
+  (info) => {
+    console.log(`Server is running on http://localhost:${info.port}`);
+    console.log(
+      `tRPC endpoint available at http://localhost:${info.port}/trpc`
+    );
+  }
+);
